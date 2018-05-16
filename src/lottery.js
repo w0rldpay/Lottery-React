@@ -93,15 +93,6 @@ const abi = [
   },
   {
     constant: true,
-    inputs: [],
-    name: "newLottery",
-    outputs: [{ name: "", type: "address" }],
-    payable: false,
-    stateMutability: "view",
-    type: "function"
-  },
-  {
-    constant: true,
     inputs: [{ name: "", type: "address" }],
     name: "refunds",
     outputs: [{ name: "", type: "uint256" }],
@@ -154,12 +145,6 @@ const abi = [
       { indexed: false, name: "jackPot", type: "uint256" }
     ],
     name: "Winners",
-    type: "event"
-  },
-  {
-    anonymous: false,
-    inputs: [{ indexed: false, name: "newLotteryAddress", type: "address" }],
-    name: "NewLottery",
     type: "event"
   },
   {
@@ -253,6 +238,15 @@ const abi = [
     type: "function"
   },
   {
+    constant: true,
+    inputs: [],
+    name: "getRefundValue",
+    outputs: [{ name: "", type: "uint256" }],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
     constant: false,
     inputs: [{ name: "_winningNumber", type: "uint256" }],
     name: "setWinningNumber",
@@ -272,6 +266,6 @@ const abi = [
   }
 ];
 
-export default function lotteryAt(lotteryAddress){
-    return new web3.eth.Contract(abi, lotteryAddress);
-} 
+export default function lotteryAt(lotteryAddress) {
+  return new web3.eth.Contract(abi, lotteryAddress);
+}

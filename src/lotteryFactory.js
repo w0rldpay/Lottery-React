@@ -1,12 +1,12 @@
 import web3 from "./web3";
 
-const address = "0x73b388008a5ebd15dba1098d3c41a97a8464a34a";
+const address = "0xd3df5861d4f37c0912b54fc004e5e020fd98c77e";
 
 const abi = [
   {
     constant: true,
-    inputs: [],
-    name: "deployedLottery",
+    inputs: [{ name: "", type: "uint256" }],
+    name: "lotteries",
     outputs: [{ name: "", type: "address" }],
     payable: false,
     stateMutability: "view",
@@ -31,6 +31,15 @@ const abi = [
     type: "function"
   },
   {
+    constant: true,
+    inputs: [{ name: "", type: "address" }],
+    name: "indexOf",
+    outputs: [{ name: "", type: "uint256" }],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
     inputs: [
       { name: "_duration", type: "uint256" },
       { name: "_lotteryValue", type: "uint256" }
@@ -43,15 +52,6 @@ const abi = [
     anonymous: false,
     inputs: [{ indexed: false, name: "deployedLottery", type: "address" }],
     name: "LotteryDeployed",
-    type: "event"
-  },
-  {
-    anonymous: false,
-    inputs: [
-      { indexed: false, name: "one", type: "address" },
-      { indexed: false, name: "two", type: "address" }
-    ],
-    name: "Oe",
     type: "event"
   },
   {
@@ -73,6 +73,15 @@ const abi = [
     outputs: [{ name: "", type: "address" }],
     payable: false,
     stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "getLotteries",
+    outputs: [{ name: "", type: "address[]" }],
+    payable: false,
+    stateMutability: "view",
     type: "function"
   }
 ];
